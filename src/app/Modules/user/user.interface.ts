@@ -1,0 +1,32 @@
+import { Types } from "mongoose";
+
+export enum Role {
+  ADMIN = "ADMIN",
+  USER = "USER",
+  AGENT = "AGENT",
+}
+
+export enum IsActive {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  BLOCKED = "BLOCKED",
+}
+
+export interface IAuthProvider {
+  provider: "credentials";
+  providerID: string;
+}
+
+export interface IUser {
+  _id?: Types.ObjectId | string;
+  name: string;
+  email: string;
+  password: string;
+  picture?: string;
+  isActive?: IsActive;
+  isDeleted?: boolean;
+  role: Role;
+  wallet?: Types.ObjectId; // referencing the wallet
+  agentApproved?: boolean;
+  agentCommissionRate?: number;
+}
