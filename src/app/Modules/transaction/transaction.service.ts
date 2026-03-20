@@ -125,7 +125,7 @@ const agentCashIn = async (agentId: string, userId: string, amount: number) => {
 
   try {
     const userWallet = await Wallet.findOne({
-      userId,
+      user: userId,
     }).session(session);
 
     if (!userWallet) {

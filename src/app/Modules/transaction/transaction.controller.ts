@@ -14,7 +14,6 @@ interface JWTPayloadWithId {
 
 const getTransactionHistory = catchAsync(
   async (req: Request, res: Response) => {
-    console.log("Decoded user", req.user);
     const user = req.user as JWTPayloadWithId;
 
     if (!user.userId) {
