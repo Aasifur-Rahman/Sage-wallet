@@ -24,6 +24,7 @@ export interface IUser {
   password: string;
   picture?: string;
   isActive?: IsActive;
+  isVerified?: boolean;
   isDeleted?: boolean;
   role: Role;
   wallet?: Types.ObjectId; // referencing the wallet
